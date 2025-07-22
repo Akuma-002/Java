@@ -59,3 +59,15 @@ class B extends A{
         System.out.println("Can walk");
     }
 }
+
+
+//Interfaces
+interface Player{
+    void move();
+}
+
+class Queen implements Player{
+    public void move(){
+        System.out.println("Move");
+    }
+}
