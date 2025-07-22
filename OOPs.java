@@ -42,3 +42,20 @@ class Animal{
 class Fish extends Animal{
     
 }
+
+//Abstarct class
+abstract class A{
+    String name;
+    void print(){
+        System.out .println("HI");
+
+    }
+
+    abstract void walk();
+}
+
+class B extends A{
+    void walk(){
+        System.out.println("Can walk");
+    }
+}
