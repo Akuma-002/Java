@@ -24,3 +24,21 @@ class Student {
         this.roll = temp.roll;
     }
 }
+
+//Inheritence
+    // Base class
+
+class Animal{
+    String color;
+    void eat(){
+        System.out.println("Eats");
+    }
+
+    void breath(){
+        System.out.println("Breaths");
+    }
+}
+//Derived class
+class Fish extends Animal{
+    
+}
