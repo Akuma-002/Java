@@ -3,6 +3,7 @@ public class Linkedlist {
     public static void main(String args[]){
         Node ss = new Node();
         ss.insert(2);
+        ss.display();
     }
 }
 
@@ -28,11 +29,22 @@ class Node{
         if(Head == null){
             Head = Newnode;
         }
-        Node temp = Head;
-        while(temp.next != null){
-            temp = temp.next;
+        else{
+            Node temp = Head;
+            while(temp.next != null){
+                temp = temp.next;
+            }
+            temp.next = Newnode;
         }
-        temp.next = Newnode;
     }
     //Display
+    public static void display(){
+        Node temp = Head;
+        while(temp != null){
+            System.out.print(temp.data + "->");
+            temp = temp.next;
+        }
+        System.out.print("null");
+    }
+    
 }
