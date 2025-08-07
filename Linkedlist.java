@@ -46,5 +46,6 @@ class Node{
         }
         System.out.print("null");
     }
-    
+    //Delete at end
+    public int 
 }
