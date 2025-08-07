@@ -3,6 +3,9 @@ public class Linkedlist {
     public static void main(String args[]){
         Node ss = new Node();
         ss.insert(2);
+        ss.insert(2);
+        ss.insert(2);
+        System.out.println(ss.deleteAtEnd());
         ss.display();
     }
 }
@@ -47,5 +50,12 @@ class Node{
         System.out.print("null");
     }
     //Delete at end
-    public int 
+    public int deleteAtEnd(){
+        Node temp = Head;
+        while (temp.next.next != null){
+            temp = temp.next;
+        }
+        temp.next = null;
+        return temp.data;
+    }
 }
