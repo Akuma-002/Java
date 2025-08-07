@@ -5,7 +5,8 @@ public class Linkedlist {
         ss.insert(4);
         ss.insert(5);
         ss.insert(6);
-        System.out.println(ss.deleteByValue(6));
+        ss.inserAtStart(2);
+        ss.insertAtIndex(0, 2);
         ss.display();
     }
 }
@@ -26,19 +27,35 @@ class Node{
     }
     public static Node Head;
     public static Node Tail;
-    /*Insert */
+    /*Insert At End*/
     public static void insert(int data){
-        Node Newnode = new Node(data);
+        Node newNode = new Node(data);
         if(Head == null){
-            Head = Newnode;
+            Head = newNode;
         }
         else{
             Node temp = Head;
             while(temp.next != null){
                 temp = temp.next;
             }
-            temp.next = Newnode;
+            temp.next = newNode;
         }
+    }
+    //Insert At Start
+    public void inserAtStart(int data){
+        Node newNode = new Node(data);
+        newNode.next = Head;
+        Head = newNode;
+    }
+    //Insert At Index
+    public void insertAtIndex(int data, int index){
+        Node newNode = new Node(data);
+        Node temp = Head;
+        for (int i = 0; i < index-1; i++){
+            temp= temp.next;
+        }
+        newNode.next = temp.next;
+        temp.next = newNode;
     }
     //Display
     public static void display(){
@@ -117,4 +134,5 @@ class Node{
         }
         return -1;
     }
+
 }
