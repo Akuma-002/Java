@@ -6,7 +6,11 @@ public class CycleLinkedList {
         ss.insert(4);
         ss.insert(5);
         ss.display();
+        ss.Head.next.next.next.next = ss.Head.next;
         System.out.println(Node.isCycle());
+        ss.cycleRemover();
+        ss.cycleRemover();
+        ss.display();
     }
 }
 
@@ -33,6 +37,8 @@ class Node{
                 temp = temp.next;
             }
             temp.next = newNode;
+            Tail = newNode;
+            
         }
     }
     //Insert At Start
@@ -149,4 +155,31 @@ class Node{
         }
         return false;
     }
+    public static void cycleRemover(){
+        Node slow = Head;
+        Node fast = Head;
+        boolean flag = false;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast){
+                flag = true;
+                slow = Head;
+                Node pre = fast;
+                while (slow != fast){
+                    pre = fast;
+                    slow = slow.next;
+                    fast = fast.next;
+                }
+                pre.next = null;
+            }
+        }
+        if(flag){
+            System.out.println("Cycle removed");
+        }
+        else{
+            System.out.println("Not Cycle");
+        }
+    }
+    
 }
