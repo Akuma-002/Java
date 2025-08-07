@@ -8,12 +8,13 @@ public class Linkedlist {
         ss.inserAtStart(2);
         ss.insertAtIndex(0, 2);
         ss.display();
+        ss.displayIndex(0);
     }
 }
 
 
 
-
+//Nodes
 class Node{
     int data;
     Node next;
@@ -64,7 +65,15 @@ class Node{
             System.out.print(temp.data + "->");
             temp = temp.next;
         }
-        System.out.print("null");
+        System.out.println("null");
+    }
+    //Display any specific index
+    public void displayIndex(int index){
+        Node temp = Head;
+        for (int i = 0; i < index; i++){
+            temp = temp.next;
+        }
+        System.err.println(temp.data);
     }
     //Delete at end
     public int deleteAtEnd(){
