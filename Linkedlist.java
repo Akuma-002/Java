@@ -5,7 +5,7 @@ public class Linkedlist {
         ss.insert(4);
         ss.insert(5);
         ss.insert(6);
-        System.out.println(ss.deleteAtStart());
+        System.out.println(ss.deleteByValue(6));
         ss.display();
     }
 }
@@ -82,5 +82,39 @@ class Node{
             Head = temp;
             return rr;
         }
+    }
+    //Delete at index
+    public int deleteAtIndex(int n){
+        if (n == 0){
+            Node temp = Head.next;
+            int data = Head.data;
+            Head = temp;
+            return data;
+        }
+        Node temp = Head;
+        for (int i = 0; i < n-1; i++){
+            temp = temp.next;
+        }
+        int data = temp.next.data;
+        temp.next = temp.next.next;
+        return data;
+    }
+    //Delete by value
+    public int deleteByValue(int n){
+        Node temp = Head;
+        while (temp.next != null){
+            if(temp.next.data == n){
+                int data = temp.next.data;
+                temp.next = temp.next.next;
+                return data;
+            }
+            else if (temp.data == n){
+                int data = Head.data;
+                Head = Head.next;
+                return data;
+            }
+            temp = temp.next;
+        }
+        return -1;
     }
 }
