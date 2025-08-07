@@ -2,10 +2,10 @@ public class Linkedlist {
     
     public static void main(String args[]){
         Node ss = new Node();
-        ss.insert(2);
-        ss.insert(2);
-        ss.insert(2);
-        System.out.println(ss.deleteAtEnd());
+        ss.insert(4);
+        ss.insert(5);
+        ss.insert(6);
+        System.out.println(ss.deleteAtStart());
         ss.display();
     }
 }
@@ -51,11 +51,36 @@ class Node{
     }
     //Delete at end
     public int deleteAtEnd(){
-        Node temp = Head;
-        while (temp.next.next != null){
-            temp = temp.next;
+        if (Head == null){
+            return -1;
         }
-        temp.next = null;
-        return temp.data;
+        else if(Head.next == null){
+            Head = null;
+            return -1;
+        }
+        else{
+            Node temp = Head;
+            while (temp.next.next != null){
+                temp = temp.next;
+            }
+            temp.next = null;
+            return temp.data;
+        }
+    }
+    //Delete at First
+    public int deleteAtStart(){
+        if (Head == null){
+            return -1;
+        }
+        else if(Head.next == null){
+            Head = null;
+            return -1;
+        }
+        else{
+            Node temp = Head.next;
+            int rr = Head.data;
+            Head = temp;
+            return rr;
+        }
     }
 }
