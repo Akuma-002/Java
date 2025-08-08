@@ -144,4 +144,16 @@ class Node{
         return -1;
     }
 
+    public Node getMid(){
+
+    }
+
+    //Merg sort 
+    public Node mergeSort(){
+        //find mid
+        Node mid = getMid();
+        //left & right
+        Node right = mid.next;
+        mid.next = null;
+    }
 }
