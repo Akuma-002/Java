@@ -144,16 +144,31 @@ class Node{
         return -1;
     }
 
-    public Node getMid(){
+    private Node mergeSort(Node Head1, Node Head2 )
 
+    private Node getMid(Node Head){
+        Node slow = Head;
+        Node fast = Head.next;
+        while (fast != null && fast.next == null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
     }
 
     //Merg sort 
-    public Node mergeSort(){
+    public Node mergeSort(Node Head){
+        if(Head == null && Head.next == null){
+            return Head;
+        }
         //find mid
-        Node mid = getMid();
+        Node mid = getMid(Head);
         //left & right
         Node right = mid.next;
         mid.next = null;
+        Node newLeft = mergeSort(Head);
+        Node newRight = mergeSort(right);
+
+        return mergeSort(newLeft, newRight);
     }
 }
