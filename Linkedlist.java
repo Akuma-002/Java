@@ -144,7 +144,7 @@ class Node{
         return -1;
     }
 
-    private Node mergeSort(Node Head1, Node Head2 )
+    private Node mergeSort(Node Head1, Node Head2)
 
     private Node getMid(Node Head){
         Node slow = Head;
