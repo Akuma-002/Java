@@ -7,8 +7,13 @@ public class Linkedlist {
         ss.insert(6);
         ss.inserAtStart(2);
         ss.insertAtIndex(0, 2);
+        ss.insert(4);
+        ss.insert(5);
+        ss.insert(6);
+        ss.inserAtStart(2);
         ss.display();
-        ss.displayIndex(0);
+        ss.zigZag();
+        ss.display();
     }
 }
 
@@ -29,7 +34,7 @@ class Node{
     public static Node Head;
     public static Node Tail;
     /*Insert At End*/
-    public static void insert(int data){
+    public void insert(int data){
         Node newNode = new Node(data);
         if(Head == null){
             Head = newNode;
@@ -59,7 +64,7 @@ class Node{
         temp.next = newNode;
     }
     //Display
-    public static void display(){
+    public void display(){
         Node temp = Head;
         while(temp != null){
             System.out.print(temp.data + "->");
@@ -143,32 +148,32 @@ class Node{
         }
         return -1;
     }
-
-    private Node mergeSort(Node Head1, Node Head2 )
-
-    private Node getMid(Node Head){
-        Node slow = Head;
-        Node fast = Head.next;
-        while (fast != null && fast.next == null){
-            slow = slow.next;
-            fast = fast.next.next;
+    public static void zigZag(){
+        Node temp = Head;
+        Node last = Head;
+        while (temp != null){
+            while(last.next.next != null){
+                last = last.next;
+            }
+            if(temp == last.next.next){
+                return;
+            }
+            else if (temp.next == null){
+                return;
+            }
+            else if (temp.next.next == null){
+                return;
+            }
+            Node te = temp.next;
+            temp.next = last.next;
+            last.next.next = te;
+            last.next = null;
+            if(temp.next == null){
+                temp = temp.next;
+                return;
+            }
+            temp = temp.next.next;
+            last = Head;
         }
-        return slow;
-    }
-
-    //Merg sort 
-    public Node mergeSort(Node Head){
-        if(Head == null && Head.next == null){
-            return Head;
-        }
-        //find mid
-        Node mid = getMid(Head);
-        //left & right
-        Node right = mid.next;
-        mid.next = null;
-        Node newLeft = mergeSort(Head);
-        Node newRight = mergeSort(right);
-
-        return mergeSort(newLeft, newRight);
     }
 }
