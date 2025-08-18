@@ -148,7 +148,7 @@ class Node{
         }
         return -1;
     }
-    public static void zigZag(){
+    void zigZag(){
         Node temp = Head;
         Node last = Head;
         while (temp != null){
